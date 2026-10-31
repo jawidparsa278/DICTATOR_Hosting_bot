@@ -1,0 +1,15 @@
+GOOGLE CLOUD DEPLOYMENT QUICK STEPS
+
+1) Create an Ubuntu 22.04 LTS Compute Engine VM.
+2) Connect using SSH (prefer OS Login / IAP rather than exposing SSH to all IPs).
+3) Upload this project folder to the VM.
+4) Run:
+   sudo bash deploy/google-cloud-startup.sh
+   cp .env.example .env
+   nano .env
+   docker compose up -d --build
+   docker compose logs -f
+5) Set TELEGRAM_BOT_TOKEN to a newly rotated token and OWNER_ID to your numeric Telegram ID.
+
+No inbound application port is needed: the bot uses Telegram long polling.
+Do not publish .env or mount the Docker socket into user project containers.

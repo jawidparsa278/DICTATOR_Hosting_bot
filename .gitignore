@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+service-account*.json
+*.db
+*.db-shm
+*.db-wal
+/data/
+projects/
+__pycache__/

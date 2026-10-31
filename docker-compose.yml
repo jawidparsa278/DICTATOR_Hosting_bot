@@ -1,0 +1,15 @@
+services:
+  python-host-pro:
+    build: .
+    container_name: python-host-pro
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    volumes:
+      - host_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    # The Docker socket is highly privileged. Only trusted administrators may
+    # access this host; uploaded projects are run in constrained child containers.
+volumes:
+  host_data:
